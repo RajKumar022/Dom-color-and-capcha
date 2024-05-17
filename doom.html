@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <link rel="stylesheet" href="question.css"> -->
+    <style>
+        .mainbox{
+            margin-top: 5%;
+            margin-left: 10%;
+        }
+        #box {
+            height: 30px;
+            width: 100px;
+            border: 2px solid black;
+            margin-top: 10px;
+        }
+        .btn {
+            height: 30px;
+            width: 50px;
+            margin-top: 30px;
+        } 
+    </style>
+</head>
+<body><div class="mainbox">
+    <!-- TASK ONE PRINTE USERNAME AND PASSWORD -->
+    <h1>Form</h1>
+    <form onsubmit="takevalue()">
+        <label>User Name</label>
+        <input type="text" id="name"><br><br>
+        <label>Password</label>
+        <input type="password" id="password"><br><br>
+        <button type="submit">Submit</button>
+    </form> 
+
+    <!-- TASK SECOND CHANG BACKGROUND COLOR -->
+    <input type="button" id="btn1" class="btn" value="click1"><br>
+    <p>for background color change</p>
+    <!-- TASK THIRD CREATE CAPCHA -->
+    
+    <input type="button" id="btn2" class="btn" value="click2">
+    <br>
+    <p>for create reandom capcha</p>
+    <div id="box"></div>
+</div>
+    <!--  --> 
+    
+    <script>
+        //FIRST
+        function takevalue(){
+            let name = document.getElementById("name").value;
+            let password = document.getElementById("password").value;
+            document.write("User Name: " + name + "<br>");
+            document.write("Password: " + password + "<br>");
+            return false; 
+        }
+
+        // SECOND
+        let btn1 = document.getElementById('btn1');
+        btn1.addEventListener('click', changeBackgroundColor);
+        
+        function changeBackgroundColor() {
+            let color = ['red', 'green', 'blue', 'orange', 'yellow'];
+            let randomColor = color[Math.floor(Math.random() * color.length)];
+            document.body.style.background = randomColor;
+        }
+
+        // THIRD
+        let box1 = document.getElementById("box");
+        let btn2 = document.getElementById('btn2');
+        btn2.addEventListener('click', ch);
+        
+        function ch() {
+            let num = [1, 2, 3, 4, 5, 6, 7, 8, 9, "A", "B", "C", "D"];
+            let randomNum1 = num[Math.floor(Math.random() * num.length)];
+            let randomNum2 = num[Math.floor(Math.random() * num.length)];
+            let randomNum3 = num[Math.floor(Math.random() * num.length)];
+            let randomNum4 = num[Math.floor(Math.random() * num.length)];
+            let randomNum5 = num[Math.floor(Math.random() * num.length)];
+            let subarr = [randomNum1, randomNum2, randomNum3, randomNum4, randomNum5].join(' ');
+            box1.innerHTML = subarr;
+        } 
+    </script>
+</body>
+</html>
